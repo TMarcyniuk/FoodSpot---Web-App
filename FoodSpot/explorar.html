@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodSpot — Explorar</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Explorar specific overrides */
+    .main-explore {
+      margin-left: var(--sidebar-w);
+      padding: 20px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+    }
+    /* Filter panel */
+    .filter-panel {
+      display: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 18px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+    .filter-panel.open { display: block; }
+    .filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .filter-label { font-size: 12px; font-weight: 600; color: var(--text-sec); margin-bottom: 5px; }
+    .filter-select {
+      width: 100%; padding: 9px 12px;
+      border: 1px solid var(--border); border-radius: var(--r-sm);
+      font-size: 13px; font-family: var(--font); color: var(--text);
+      background: var(--card); cursor: pointer; outline: none;
+    }
+    .filter-select:focus { border-color: var(--orange); }
+    .filter-tags-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+    .filter-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
+  </style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+        </svg>
+      </div>
+      <span class="logo-name">FoodSpot</span>
+    </a>
+
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Inicio
+      </a>
+      <a href="explorar.html" class="nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Explorar
+      </a>
+      <a href="suscripciones.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
+        Suscripciones
+      </a>
+      <a href="iniciar-sesion.html" class="nav-item nav-login">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        Iniciar Sesión
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-avatar">JD</div>
+        <div>
+          <div class="user-name">Usuario Demo</div>
+          <div class="user-plan">Plan Básico</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main-explore">
+
+    <!-- Filter panel (toggled) -->
+    <div class="filter-panel" id="filterPanel">
+      <div class="filter-grid">
+        <div>
+          <div class="filter-label">Tipo de comida</div>
+          <select class="filter-select">
+            <option value="">Todos los tipos</option>
+            <option>Pizza</option>
+            <option>Sushi</option>
+            <option>Hamburguesas</option>
+            <option>Parrilla</option>
+            <option>Italiana</option>
+            <option>Mexicana</option>
+            <option>Japonés</option>
+          </select>
+        </div>
+        <div>
+          <div class="filter-label">Rango de precio</div>
+          <select class="filter-select">
+            <option value="">Cualquier precio</option>
+            <option>$ — Económico</option>
+            <option>$$ — Moderado</option>
+            <option>$$$ — Elevado</option>
+            <option>$$$$ — Premium</option>
+          </select>
+        </div>
+        <div>
+          <div class="filter-label">Calificación mínima</div>
+          <select class="filter-select">
+            <option value="">Sin filtro</option>
+            <option>⭐ 3.0+</option>
+            <option>⭐⭐ 4.0+</option>
+            <option>⭐⭐⭐ 4.5+</option>
+          </select>
+        </div>
+        <div>
+          <div class="filter-label">Distancia máxima</div>
+          <select class="filter-select">
+            <option value="">Sin límite</option>
+            <option>500 m</option>
+            <option>1 km</option>
+            <option>2 km</option>
+            <option>5 km</option>
+          </select>
+        </div>
+      </div>
+      <div class="filter-actions">
+        <button class="btn btn-outline" onclick="clearFilters()">Limpiar</button>
+        <button class="btn btn-primary" onclick="applyFilters()">Aplicar filtros</button>
+      </div>
+    </div>
+
+    <!-- Split: panel + map -->
+    <div class="explore-layout">
+
+      <!-- Left panel -->
+      <div class="explore-panel">
+        <div class="explore-panel-top">
+          <div class="explore-title">Explorar</div>
+
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" class="form-input" placeholder="Buscar restaurantes..." id="searchInput">
+          </div>
+
+          <div class="filter-row">
+            <div class="input-wrap" style="flex:1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              <input type="text" class="form-input" value="Buenos Aires, Argentina">
+            </div>
+            <button class="btn-filter" id="filterToggle" onclick="toggleFilters()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/>
+              </svg>
+              Filtros
+            </button>
+          </div>
+        </div>
+
+        <div class="results-count" id="resultsCount">5 restaurantes encontrados</div>
+
+        <!-- Restaurant list -->
+        <div class="rest-list" id="restList">
+
+          <div class="rest-list-item" data-name="La Parrilla Argentina" data-cat="parrilla">
+            <div class="list-num">1</div>
+            <div class="list-info">
+              <div class="list-name">La Parrilla Argentina</div>
+              <div class="list-cat">Parrilla</div>
+              <div class="list-meta">
+                <span class="list-rating">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  4.8
+                </span>
+                <span class="list-price">$$$</span>
+                <span class="list-dist">0.5 km</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rest-list-item" data-name="Sushi Master" data-cat="japonés">
+            <div class="list-num">2</div>
+            <div class="list-info">
+              <div class="list-name">Sushi Master</div>
+              <div class="list-cat">Japonés</div>
+              <div class="list-meta">
+                <span class="list-rating">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  4.6
+                </span>
+                <span class="list-price">$$$$</span>
+                <span class="list-dist">1.2 km</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rest-list-item" data-name="Pizza Napolitana" data-cat="italiana">
+            <div class="list-num">3</div>
+            <div class="list-info">
+              <div class="list-name">Pizza Napolitana</div>
+              <div class="list-cat">Italiana</div>
+              <div class="list-meta">
+                <span class="list-rating">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  4.9
+                </span>
+                <span class="list-price">$$</span>
+                <span class="list-dist">0.8 km</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rest-list-item" data-name="Burger House" data-cat="hamburguesas">
+            <div class="list-num">4</div>
+            <div class="list-info">
+              <div class="list-name">Burger House</div>
+              <div class="list-cat">Hamburguesas</div>
+              <div class="list-meta">
+                <span class="list-rating">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  4.5
+                </span>
+                <span class="list-price">$$</span>
+                <span class="list-dist">2.1 km</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rest-list-item" data-name="Tacos & Más" data-cat="mexicana">
+            <div class="list-num">5</div>
+            <div class="list-info">
+              <div class="list-name">Tacos & Más</div>
+              <div class="list-cat">Mexicana</div>
+              <div class="list-meta">
+                <span class="list-rating">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  4.7
+                </span>
+                <span class="list-price">$$</span>
+                <span class="list-dist">1.5 km</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /rest-list -->
+      </div><!-- /explore-panel -->
+
+      <!-- Map area -->
+      <div class="map-area" id="mapArea">
+        <!-- Pill header -->
+        <div class="map-header">
+          <div class="map-dot"></div>
+          Mapa Interactivo · Vista de Buenos Aires
+        </div>
+
+        <!-- User location marker -->
+        <div class="map-marker" style="top:48%; left:55%">
+          <div class="m-user">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+        </div>
+
+        <!-- Restaurant markers -->
+        <div class="map-marker" style="top:28%; left:38%">
+          <div class="m-rest" title="La Parrilla Argentina">1</div>
+        </div>
+        <div class="map-marker" style="top:42%; left:44%">
+          <div class="m-rest" title="Sushi Master">2</div>
+        </div>
+        <div class="map-marker" style="top:55%; left:58%">
+          <div class="m-rest" title="Pizza Napolitana">3</div>
+        </div>
+        <div class="map-marker" style="top:65%; left:68%">
+          <div class="m-rest" title="Burger House">4</div>
+        </div>
+        <div class="map-marker" style="top:74%; left:80%">
+          <div class="m-rest" title="Tacos & Más">5</div>
+        </div>
+
+        <!-- Legend -->
+        <div class="map-legend">
+          <p>LEYENDA</p>
+          <div class="legend-item">
+            <div class="leg-dot leg-user"></div>
+            Tu ubicación
+          </div>
+          <div class="legend-item">
+            <div class="leg-dot leg-rest"></div>
+            Restaurantes
+          </div>
+        </div>
+
+        <!-- Google Maps placeholder note -->
+        <!-- 
+          Para integrar Google Maps:
+          1. Reemplazá este div.map-area con un div id="map"
+          2. Agregá el script de la API al final del body:
+             <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"></script>
+          3. Inicializá el mapa en initMap() apuntando a Buenos Aires
+        -->
+      </div><!-- /map-area -->
+
+    </div><!-- /explore-layout -->
+  </main>
+</div>
+
+<script>
+  // Filter panel toggle
+  function toggleFilters() {
+    const panel = document.getElementById('filterPanel');
+    panel.classList.toggle('open');
+  }
+
+  function clearFilters() {
+    document.querySelectorAll('.filter-select').forEach(s => s.value = '');
+  }
+
+  function applyFilters() {
+    document.getElementById('filterPanel').classList.remove('open');
+  }
+
+  // Live search filter on list
+  const searchInput = document.getElementById('searchInput');
+  const listItems   = document.querySelectorAll('.rest-list-item');
+  const resultsCount = document.getElementById('resultsCount');
+
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.toLowerCase().trim();
+    let count = 0;
+    listItems.forEach(item => {
+      const name = item.dataset.name.toLowerCase();
+      const cat  = item.dataset.cat.toLowerCase();
+      const match = !q || name.includes(q) || cat.includes(q);
+      item.style.display = match ? '' : 'none';
+      if (match) count++;
+    });
+    resultsCount.textContent = `${count} restaurante${count !== 1 ? 's' : ''} encontrado${count !== 1 ? 's' : ''}`;
+  });
+</script>
+</body>
+</html>

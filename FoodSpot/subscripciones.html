@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodSpot — Suscripciones</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="layout">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+        </svg>
+      </div>
+      <span class="logo-name">FoodSpot</span>
+    </a>
+
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Inicio
+      </a>
+      <a href="explorar.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Explorar
+      </a>
+      <a href="suscripciones.html" class="nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
+        Suscripciones
+      </a>
+      <a href="iniciar-sesion.html" class="nav-item nav-login">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        Iniciar Sesión
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-avatar">JD</div>
+        <div>
+          <div class="user-name">Usuario Demo</div>
+          <div class="user-plan">Plan Básico</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main">
+
+    <!-- Header -->
+    <div class="plans-top">
+      <div class="plans-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        Planes y Precios
+      </div>
+      <h1 class="plans-title">Elige el plan perfecto para ti</h1>
+      <p class="plans-subtitle">Desde usuarios individuales hasta grandes cadenas internacionales,<br>tenemos el plan ideal para cada necesidad</p>
+    </div>
+
+    <!-- Plans grid -->
+    <div class="plans-grid">
+
+      <!-- Plan Básico -->
+      <div class="plan-card">
+        <div class="plan-icon pi-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h3 class="plan-name">Plan Básico</h3>
+        <p class="plan-desc">Para usuarios que buscan descubrir nuevos establecimientos</p>
+        <div class="plan-price">
+          <span class="price-amt">$999</span>
+          <span class="price-per">/mes</span>
+        </div>
+        <button class="btn btn-outline plan-btn">Seleccionar plan</button>
+        <ul class="plan-features">
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Descuentos en cada búsqueda
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Acceso a cupones exclusivos
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Historial de búsquedas ilimitado
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Guardar hasta 20 favoritos
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Recomendaciones personalizadas
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Sin publicidad
+          </li>
+        </ul>
+      </div>
+
+      <!-- Plan Restaurante (featured) -->
+      <div class="plan-card featured">
+        <div class="popular-badge">⭐ Más Popular</div>
+        <div class="plan-icon pi-orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <h3 class="plan-name">Plan Restaurante</h3>
+        <p class="plan-desc">Para pequeños y medianos establecimientos</p>
+        <div class="plan-price">
+          <span class="price-amt">$4.999</span>
+          <span class="price-per">/mes</span>
+        </div>
+        <button class="btn plan-btn featured-btn">Comenzar ahora</button>
+        <ul class="plan-features">
+          <li class="feat-item">
+            <svg class="feat-check-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Registro de 1 establecimiento
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Perfil verificado
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Estadísticas de visitas
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Cupones personalizados
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Soporte prioritario
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Panel de administración
+          </li>
+        </ul>
+      </div>
+
+      <!-- Plan Cadena -->
+      <div class="plan-card">
+        <div class="plan-icon pi-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3 class="plan-name">Plan Cadena</h3>
+        <p class="plan-desc">Para empresas con múltiples locales</p>
+        <div class="plan-price">
+          <span class="price-amt">$12.999</span>
+          <span class="price-per">/mes</span>
+        </div>
+        <button class="btn btn-outline plan-btn">Seleccionar plan</button>
+        <ul class="plan-features">
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Registro de hasta 5 localidades
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Prioridad en búsquedas
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Prioridad en recomendaciones
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Analytics avanzados
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Gestión centralizada
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Soporte 24/7
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Campañas promocionales
+          </li>
+        </ul>
+      </div>
+
+      <!-- Plan Franquicia -->
+      <div class="plan-card">
+        <div class="plan-icon pi-yellow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+        </div>
+        <h3 class="plan-name">Plan Franquicia</h3>
+        <p class="plan-desc">Para grandes empresas multinacionales</p>
+        <div class="plan-price">
+          <span class="price-amt">$29.999</span>
+          <span class="price-per">/mes</span>
+        </div>
+        <button class="btn btn-outline plan-btn">Seleccionar plan</button>
+        <ul class="plan-features">
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Localidades ilimitadas
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Máxima prioridad en búsquedas
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            API para integración
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Dashboard empresarial
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Account manager dedicado
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Reportes personalizados
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Campañas globales
+          </li>
+          <li class="feat-item">
+            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Acceso anticipado a nuevas funciones
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /plans-grid -->
+
+    <!-- Benefits -->
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon bi-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="benefit-title">Sin permanencia</div>
+        <div class="benefit-desc">Cancela cuando quieras sin penalizaciones</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon bi-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
+          </svg>
+        </div>
+        <div class="benefit-title">Prueba gratis</div>
+        <div class="benefit-desc">14 días de prueba en todos los planes</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon bi-orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="benefit-title">Actualizaciones incluidas</div>
+        <div class="benefit-desc">Acceso a todas las nuevas funciones</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
