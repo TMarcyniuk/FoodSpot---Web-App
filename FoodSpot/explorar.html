@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FoodSpot — Explorar</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="src/styles.css">
   <style>
     /* Explorar specific overrides */
     .main-explore {
@@ -72,7 +72,7 @@
         </svg>
         Suscripciones
       </a>
-      <a href="iniciar-sesion.html" class="nav-item nav-login">
+      <a href="i_sesion.html" class="nav-item nav-login">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
         </svg>
@@ -325,10 +325,18 @@
 </div>
 
 <script>
+  // Lee parámetros enviados desde la página de inicio
+  const params = new URLSearchParams(window.location.search);
+  const qParam  = params.get('q')   || '';
+  const locParam = params.get('loc') || '';
+
+  if (qParam)  document.getElementById('searchInput').value = qParam;
+  if (locParam) document.querySelector('.explore-panel-top .input-wrap:nth-child(2) .form-input').value = locParam;
+  if (qParam)  filterList(qParam);   // aplica el filtro de entrada
+
   // Filter panel toggle
   function toggleFilters() {
-    const panel = document.getElementById('filterPanel');
-    panel.classList.toggle('open');
+    document.getElementById('filterPanel').classList.toggle('open');
   }
 
   function clearFilters() {
@@ -339,23 +347,22 @@
     document.getElementById('filterPanel').classList.remove('open');
   }
 
-  // Live search filter on list
-  const searchInput = document.getElementById('searchInput');
-  const listItems   = document.querySelectorAll('.rest-list-item');
-  const resultsCount = document.getElementById('resultsCount');
-
-  searchInput.addEventListener('input', () => {
-    const q = searchInput.value.toLowerCase().trim();
+  // Filtro en tiempo real de la lista
+  function filterList(q) {
+    const query = q.toLowerCase().trim();
     let count = 0;
-    listItems.forEach(item => {
-      const name = item.dataset.name.toLowerCase();
-      const cat  = item.dataset.cat.toLowerCase();
-      const match = !q || name.includes(q) || cat.includes(q);
+    document.querySelectorAll('.rest-list-item').forEach(item => {
+      const match = !query
+        || item.dataset.name.toLowerCase().includes(query)
+        || item.dataset.cat.toLowerCase().includes(query);
       item.style.display = match ? '' : 'none';
       if (match) count++;
     });
-    resultsCount.textContent = `${count} restaurante${count !== 1 ? 's' : ''} encontrado${count !== 1 ? 's' : ''}`;
-  });
+    document.getElementById('resultsCount').textContent =
+      `${count} restaurante${count !== 1 ? 's' : ''} encontrado${count !== 1 ? 's' : ''}`;
+  }
+
+  document.getElementById('searchInput').addEventListener('input', e => filterList(e.target.value));
 </script>
 </body>
 </html>

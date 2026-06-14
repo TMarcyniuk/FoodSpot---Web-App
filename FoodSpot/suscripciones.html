@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FoodSpot — Suscripciones</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
 <div class="layout">
@@ -39,7 +39,7 @@
         </svg>
         Suscripciones
       </a>
-      <a href="iniciar-sesion.html" class="nav-item nav-login">
+      <a href="i_sesion.html" class="nav-item nav-login">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
         </svg>
@@ -89,11 +89,7 @@
           <span class="price-amt">$999</span>
           <span class="price-per">/mes</span>
         </div>
-        <button class="btn btn-outline plan-btn">Seleccionar plan</button>
-        <ul class="plan-features">
-          <li class="feat-item">
-            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Descuentos en cada búsqueda
+        <button class="btn btn-outline plan-btn" onclick="elegirPlan('Básico')">Seleccionar plan</button>
           </li>
           <li class="feat-item">
             <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -132,7 +128,7 @@
           <span class="price-amt">$4.999</span>
           <span class="price-per">/mes</span>
         </div>
-        <button class="btn plan-btn featured-btn">Comenzar ahora</button>
+        <button class="btn plan-btn featured-btn" onclick="elegirPlan('Restaurante')">Comenzar ahora</button>
         <ul class="plan-features">
           <li class="feat-item">
             <svg class="feat-check-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -174,11 +170,7 @@
           <span class="price-amt">$12.999</span>
           <span class="price-per">/mes</span>
         </div>
-        <button class="btn btn-outline plan-btn">Seleccionar plan</button>
-        <ul class="plan-features">
-          <li class="feat-item">
-            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Registro de hasta 5 localidades
+        <button class="btn btn-outline plan-btn" onclick="elegirPlan('Cadena')">Seleccionar plan</button>
           </li>
           <li class="feat-item">
             <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -220,11 +212,7 @@
           <span class="price-amt">$29.999</span>
           <span class="price-per">/mes</span>
         </div>
-        <button class="btn btn-outline plan-btn">Seleccionar plan</button>
-        <ul class="plan-features">
-          <li class="feat-item">
-            <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Localidades ilimitadas
+        <button class="btn btn-outline plan-btn" onclick="elegirPlan('Franquicia')">Seleccionar plan</button>
           </li>
           <li class="feat-item">
             <svg class="feat-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -292,5 +280,11 @@
 
   </main>
 </div>
+<script>
+  // Lleva al registro pasando el plan elegido como parámetro
+  function elegirPlan(plan) {
+    window.location.href = `iniciar-sesion.html?tab=register&plan=${encodeURIComponent(plan)}`;
+  }
+</script>
 </body>
 </html>

@@ -39,7 +39,7 @@
         </svg>
         Suscripciones
       </a>
-      <a href="iniciar-sesion.html" class="nav-item nav-login">
+      <a href="i_sesion.html" class="nav-item nav-login">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
         </svg>
@@ -93,7 +93,7 @@
         <button class="tag-btn">🌮 Mexicana</button>
       </div>
 
-      <button class="btn btn-primary btn-search">Buscar</button>
+      <button class="btn btn-primary btn-search" onclick="buscar()">Buscar</button>
     </div>
 
     <!-- Stats -->
@@ -327,21 +327,41 @@
 </div><!-- /layout -->
 
 <script>
-  // Tag buttons toggle
+  // Tag buttons toggle — también guardan la selección para pasarla al explorar
   document.querySelectorAll('.tag-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('active');
-    });
+    btn.addEventListener('click', () => btn.classList.toggle('active'));
   });
+
+  // Botón Buscar: lleva a explorar con los parámetros ingresados
+  function buscar() {
+    const comida   = document.querySelector('.search-inputs .form-input:first-of-type').value.trim();
+    const ubicacion = document.querySelector('.search-inputs .form-input:last-of-type').value.trim();
+    const activas  = [...document.querySelectorAll('.tag-btn.active')].map(b => b.textContent.trim()).join(',');
+
+    const params = new URLSearchParams();
+    if (comida)    params.set('q', comida);
+    if (ubicacion) params.set('loc', ubicacion);
+    if (activas)   params.set('tags', activas);
+
+    window.location.href = `explorar.html${params.toString() ? '?' + params : ''}`;
+  }
 
   // Show more cards
   const hidden = document.querySelectorAll('.rest-card.hidden');
-  const showMoreBtn = document.getElementById('showMoreBtn');
+  const showMoreBtn  = document.getElementById('showMoreBtn');
   const showMoreWrap = document.getElementById('showMoreWrap');
 
   showMoreBtn.addEventListener('click', () => {
     hidden.forEach(c => c.classList.remove('hidden'));
     showMoreWrap.style.display = 'none';
+  });
+
+  // Tarjetas de restaurantes → llevan a explorar
+  document.querySelectorAll('.rest-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const nombre = card.querySelector('.rest-name')?.textContent.trim() || '';
+      window.location.href = `explorar.html${nombre ? '?q=' + encodeURIComponent(nombre) : ''}`;
+    });
   });
 </script>
 </body>
