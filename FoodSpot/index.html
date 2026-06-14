@@ -1,13 +1,348 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>foodspot</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodSpot — Inicio</title>
+  <link rel="stylesheet" href="src/index.css">
+</head>
+<body>
+<div class="layout">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+        </svg>
+      </div>
+      <span class="logo-name">FoodSpot</span>
+    </a>
+
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Inicio
+      </a>
+      <a href="explorar.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Explorar
+      </a>
+      <a href="suscripciones.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
+        Suscripciones
+      </a>
+      <a href="iniciar-sesion.html" class="nav-item nav-login">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        Iniciar Sesión
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-avatar">JD</div>
+        <div>
+          <div class="user-name">Usuario Demo</div>
+          <div class="user-plan">Plan Básico</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main">
+
+    <div class="page-top">
+      <h1 class="page-title">¿Qué comemos hoy?</h1>
+      <p class="page-subtitle">Descubre los mejores restaurantes cerca de ti</p>
+    </div>
+
+    <!-- Search card -->
+    <div class="card search-card">
+      <div class="search-inputs">
+        <div class="input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" class="form-input" placeholder="¿Qué te gustaría comer?">
+        </div>
+        <div class="input-divider"></div>
+        <div class="input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          <input type="text" class="form-input" placeholder="Ubicación o usar actual" value="Buenos Aires, Argentina">
+        </div>
+      </div>
+
+      <div class="search-tags">
+        <button class="tag-btn">🍕 Pizza</button>
+        <button class="tag-btn">🍣 Sushi</button>
+        <button class="tag-btn">🍔 Hamburguesas</button>
+        <button class="tag-btn">🥩 Parrilla</button>
+        <button class="tag-btn">🍝 Italiana</button>
+        <button class="tag-btn">🌮 Mexicana</button>
+      </div>
+
+      <button class="btn btn-primary btn-search">Buscar</button>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon si-orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+          </svg>
+        </div>
+        <div>
+          <div class="stat-label">Búsquedas hoy</div>
+          <div class="stat-val">12</div>
+          <div class="stat-trend">+3 vs mes anterior</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon si-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="stat-label">Restaurantes favoritos</div>
+          <div class="stat-val">8</div>
+          <div class="stat-sub">Guardados este mes</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon si-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="stat-label">Descuentos usados</div>
+          <div class="stat-val">$2.450</div>
+          <div class="stat-sub" style="color: var(--green); font-weight:600;">Ahorraste este mes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommended restaurants -->
+    <div class="section-header">
+      <h2 class="section-title">Recomendados para ti</h2>
+      <a href="explorar.html" class="link-orange">Ver todos</a>
+    </div>
+
+    <div class="rest-grid" id="restGrid">
+      <!-- Card 1 -->
+      <div class="rest-card">
+        <div class="rest-img">
+          <img src="https://picsum.photos/seed/parrilla1/400/250" alt="La Parrilla Argentina">
+          <span class="disc-badge">20% OFF</span>
+        </div>
+        <div class="rest-body">
+          <div class="rest-name">La Parrilla Argentina</div>
+          <div class="rest-cat">Parrilla</div>
+          <div class="rest-meta">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              4.8
+            </div>
+            <span class="meta-price">$$$</span>
+            <span class="meta-dist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              0.5 km
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="rest-card">
+        <div class="rest-img">
+          <img src="https://picsum.photos/seed/sushi22/400/250" alt="Sushi Master">
+          <span class="disc-badge">15% OFF</span>
+        </div>
+        <div class="rest-body">
+          <div class="rest-name">Sushi Master</div>
+          <div class="rest-cat">Japonés</div>
+          <div class="rest-meta">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              4.6
+            </div>
+            <span class="meta-price">$$$$</span>
+            <span class="meta-dist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              1.2 km
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="rest-card">
+        <div class="rest-img">
+          <img src="https://picsum.photos/seed/pizza33/400/250" alt="Pizza Napolitana">
+        </div>
+        <div class="rest-body">
+          <div class="rest-name">Pizza Napolitana</div>
+          <div class="rest-cat">Italiana</div>
+          <div class="rest-meta">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              4.9
+            </div>
+            <span class="meta-price">$$</span>
+            <span class="meta-dist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              0.8 km
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="rest-card">
+        <div class="rest-img">
+          <img src="https://picsum.photos/seed/burger44/400/250" alt="Burger House">
+          <span class="disc-badge">10% OFF</span>
+        </div>
+        <div class="rest-body">
+          <div class="rest-name">Burger House</div>
+          <div class="rest-cat">Hamburguesas</div>
+          <div class="rest-meta">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              4.5
+            </div>
+            <span class="meta-price">$$</span>
+            <span class="meta-dist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              2.1 km
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards 5–8 (hidden by default) -->
+      <div class="rest-card hidden">
+        <div class="rest-img">
+          <img src="https://picsum.photos/seed/tacos55/400/250" alt="Tacos & Más">
+          <span class="disc-badge">5% OFF</span>
+        </div>
+        <div class="rest-body">
+          <div class="rest-name">Tacos & Más</div>
+          <div class="rest-cat">Mexicana</div>
+          <div class="rest-meta">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              4.7
+            </div>
+            <span class="meta-price">$$</span>
+            <span class="meta-dist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              1.5 km
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="rest-card hidden">
+        <div class="rest-img">
+          <img src="https://picsum.photos/seed/ramen66/400/250" alt="Ramen House">
+        </div>
+        <div class="rest-body">
+          <div class="rest-name">Ramen House</div>
+          <div class="rest-cat">Japonés</div>
+          <div class="rest-meta">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              4.4
+            </div>
+            <span class="meta-price">$$</span>
+            <span class="meta-dist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              3.0 km
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="rest-card hidden">
+        <div class="rest-img">
+          <img src="https://picsum.photos/seed/pasta77/400/250" alt="Pasta & Vino">
+          <span class="disc-badge">12% OFF</span>
+        </div>
+        <div class="rest-body">
+          <div class="rest-name">Pasta & Vino</div>
+          <div class="rest-cat">Italiana</div>
+          <div class="rest-meta">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              4.3
+            </div>
+            <span class="meta-price">$$$</span>
+            <span class="meta-dist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              2.4 km
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="rest-card hidden">
+        <div class="rest-img">
+          <img src="https://picsum.photos/seed/empanadas88/400/250" alt="El Emporio">
+        </div>
+        <div class="rest-body">
+          <div class="rest-name">El Emporio</div>
+          <div class="rest-cat">Parrilla</div>
+          <div class="rest-meta">
+            <div class="stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              4.6
+            </div>
+            <span class="meta-price">$$$</span>
+            <span class="meta-dist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              1.8 km
+            </span>
+          </div>
+        </div>
+      </div>
+    </div><!-- /rest-grid -->
+
+    <div class="show-more-wrap" id="showMoreWrap">
+      <button class="btn btn-outline" id="showMoreBtn">Mostrar más</button>
+    </div>
+
+  </main>
+</div><!-- /layout -->
+
+<script>
+  // Tag buttons toggle
+  document.querySelectorAll('.tag-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+    });
+  });
+
+  // Show more cards
+  const hidden = document.querySelectorAll('.rest-card.hidden');
+  const showMoreBtn = document.getElementById('showMoreBtn');
+  const showMoreWrap = document.getElementById('showMoreWrap');
+
+  showMoreBtn.addEventListener('click', () => {
+    hidden.forEach(c => c.classList.remove('hidden'));
+    showMoreWrap.style.display = 'none';
+  });
+</script>
+</body>
 </html>
