@@ -5,7 +5,6 @@ Aplicación web para descubrir restaurantes cercanos, comparar precios y acceder
 > Proyecto escolar — Instituto Luis A. Huergo
 
 ---
-(Para descargar el código hacer click sobre el botón verde llamada "código" y descargar como ZIP)
 
 ## Nota Importante
 
@@ -21,7 +20,7 @@ Descargá e instalá Node.js desde la página oficial:
 
 [https://nodejs.org](https://nodejs.org)
 
-> Recomendamos la versión **LTS**. La instalación de Node.js incluye `npm` automáticamente.
+> Recomendamos la versión **LTS**. La instalación de Node.js suele incluir `npm` automáticamente.
 
 Para verificar que se instaló correctamente, abrí una terminal y ejecutá:
 
@@ -43,8 +42,9 @@ git clone https://github.com/tu-usuario/nombre-del-repo.git
 cd nombre-del-repo
 ```
 
----
+O descargálo como un ZIP, haciendo click sobre el botón verde llamada "código" y descargar como ZIP.
 
+---
 ### 3. Instalar las dependencias
 
 Dentro de la carpeta del proyecto, ejecutá:
