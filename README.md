@@ -5,6 +5,7 @@ Aplicación web para descubrir restaurantes cercanos, comparar precios y acceder
 > Proyecto escolar — Instituto Luis A. Huergo
 
 ---
+(Para descargar el código hacer click sobre el botón verde llamada "código" y descargar como ZIP)
 
 ## Cómo correr el proyecto localmente
 
