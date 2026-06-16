@@ -7,6 +7,12 @@ Aplicación web para descubrir restaurantes cercanos, comparar precios y acceder
 ---
 (Para descargar el código hacer click sobre el botón verde llamada "código" y descargar como ZIP)
 
+## Nota Importante
+
+El proyecto todavía no está terminado, y muchas de las funciones relacionadas con el backend todavía no funcionan. Ejemplos de estos son las recomendaciones en la páginca de inicio, el crear una cuenta/iniciar sesión y botones relacionados con el mapa (filtros de búsqueda, buscar por tipo de comida, recomendados)
+
+---
+
 ## Cómo correr el proyecto localmente
 
 ### 1. Instalar Node.js
