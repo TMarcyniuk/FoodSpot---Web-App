@@ -3,8 +3,7 @@ import { loadGoogleMaps } from "./loadGoogleMaps.js";
 import {
     initGoogleMap,
     buscarDireccion
-}
-from "./googleMaps.js";
+} from "./googleMaps.js";
 
 const input = document.getElementById("searchInput");
 
@@ -14,27 +13,31 @@ function realizarBusqueda() {
 
     if (texto === "") return;
 
+    // Guardamos la búsqueda para reutilizarla
     localStorage.setItem("searchQuery", texto);
 
+    // Centramos el mapa
     buscarDireccion(texto);
 
 }
 
 const busqueda = localStorage.getItem("searchQuery");
 
-if(busqueda){
+// Si venimos desde Inicio, mostramos la búsqueda
+if (busqueda) {
 
     input.value = busqueda;
 
 }
 
-async function iniciar(){
+async function iniciar() {
 
     await loadGoogleMaps();
 
     initGoogleMap();
 
-    if(busqueda){
+    // Si había una búsqueda previa, la mostramos
+    if (busqueda) {
 
         buscarDireccion(busqueda);
 
@@ -44,6 +47,7 @@ async function iniciar(){
 
 iniciar();
 
+// Buscar presionando Enter
 input.addEventListener("keydown", (e) => {
 
     if (e.key === "Enter") {
