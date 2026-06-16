@@ -7,20 +7,12 @@
   <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
-<div class="layout">
+<div class="layout header-layout">
 
   <!-- ===================== SIDEBAR ===================== -->
-  <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
-        </svg>
-      </div>
-      <span class="logo-name">FoodSpot</span>
-    </a>
-
-    <nav class="sidebar-nav">
+    <header class="header">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon"></div><span class="logo-name">FoodSpot</span></a>
+<nav class="sidebar-nav">
       <a href="index.html" class="nav-item active">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
@@ -56,7 +48,8 @@
         </div>
       </div>
     </div>
-  </aside>
+  
+  </header>
 
   <!-- ===================== MAIN ===================== -->
   <main class="main">
@@ -73,7 +66,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
-          <input type="text" class="form-input" placeholder="¿Qué te gustaría comer?">
+          <input type="text" class="form-input" id="homeSearch" placeholder="¿Qué te gustaría comer?">
         </div>
         <div class="input-divider"></div>
         <div class="input-wrap">
@@ -93,7 +86,8 @@
         <button class="tag-btn">🌮 Mexicana</button>
       </div>
 
-      <button class="btn btn-primary btn-search" onclick="buscar()">Buscar</button>
+      <button id="btnBuscar" class="btn btn-primary btn-search">
+        Buscar
     </div>
 
     <!-- Stats -->
@@ -330,39 +324,10 @@
   // Tag buttons toggle — también guardan la selección para pasarla al explorar
   document.querySelectorAll('.tag-btn').forEach(btn => {
     btn.addEventListener('click', () => btn.classList.toggle('active'));
-  });
-
-  // Botón Buscar: lleva a explorar con los parámetros ingresados
-  function buscar() {
-    const comida   = document.querySelector('.search-inputs .form-input:first-of-type').value.trim();
-    const ubicacion = document.querySelector('.search-inputs .form-input:last-of-type').value.trim();
-    const activas  = [...document.querySelectorAll('.tag-btn.active')].map(b => b.textContent.trim()).join(',');
-
-    const params = new URLSearchParams();
-    if (comida)    params.set('q', comida);
-    if (ubicacion) params.set('loc', ubicacion);
-    if (activas)   params.set('tags', activas);
-
-    window.location.href = `explorar.html${params.toString() ? '?' + params : ''}`;
-  }
-
-  // Show more cards
-  const hidden = document.querySelectorAll('.rest-card.hidden');
-  const showMoreBtn  = document.getElementById('showMoreBtn');
-  const showMoreWrap = document.getElementById('showMoreWrap');
-
-  showMoreBtn.addEventListener('click', () => {
-    hidden.forEach(c => c.classList.remove('hidden'));
-    showMoreWrap.style.display = 'none';
-  });
-
-  // Tarjetas de restaurantes → llevan a explorar
-  document.querySelectorAll('.rest-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const nombre = card.querySelector('.rest-name')?.textContent.trim() || '';
-      window.location.href = `explorar.html${nombre ? '?q=' + encodeURIComponent(nombre) : ''}`;
-    });
-  });
+  }); 
 </script>
+
+<script type="module" src="/src/js/home.js"></script>
+
 </body>
 </html>

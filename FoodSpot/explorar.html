@@ -8,7 +8,7 @@
   <style>
     /* Explorar specific overrides */
     .main-explore {
-      margin-left: var(--sidebar-w);
+      margin-left:0;
       padding: 20px;
       height: 100vh;
       display: flex;
@@ -40,20 +40,12 @@
   </style>
 </head>
 <body>
-<div class="layout">
+<div class="layout header-layout">
 
   <!-- ===================== SIDEBAR ===================== -->
-  <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
-        </svg>
-      </div>
-      <span class="logo-name">FoodSpot</span>
-    </a>
-
-    <nav class="sidebar-nav">
+    <header class="header">
+    <a href="index.html" class="sidebar-logo"><div class="logo-icon"></div><span class="logo-name">FoodSpot</span></a>
+<nav class="sidebar-nav">
       <a href="index.html" class="nav-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
@@ -89,7 +81,8 @@
         </div>
       </div>
     </div>
-  </aside>
+  
+  </header>
 
   <!-- ===================== MAIN ===================== -->
   <main class="main-explore">
@@ -266,59 +259,9 @@
       </div><!-- /explore-panel -->
 
       <!-- Map area -->
-      <div class="map-area" id="mapArea">
-        <!-- Pill header -->
-        <div class="map-header">
-          <div class="map-dot"></div>
-          Mapa Interactivo · Vista de Buenos Aires
-        </div>
-
-        <!-- User location marker -->
-        <div class="map-marker" style="top:48%; left:55%">
-          <div class="m-user">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </div>
-        </div>
-
-        <!-- Restaurant markers -->
-        <div class="map-marker" style="top:28%; left:38%">
-          <div class="m-rest" title="La Parrilla Argentina">1</div>
-        </div>
-        <div class="map-marker" style="top:42%; left:44%">
-          <div class="m-rest" title="Sushi Master">2</div>
-        </div>
-        <div class="map-marker" style="top:55%; left:58%">
-          <div class="m-rest" title="Pizza Napolitana">3</div>
-        </div>
-        <div class="map-marker" style="top:65%; left:68%">
-          <div class="m-rest" title="Burger House">4</div>
-        </div>
-        <div class="map-marker" style="top:74%; left:80%">
-          <div class="m-rest" title="Tacos & Más">5</div>
-        </div>
-
-        <!-- Legend -->
-        <div class="map-legend">
-          <p>LEYENDA</p>
-          <div class="legend-item">
-            <div class="leg-dot leg-user"></div>
-            Tu ubicación
-          </div>
-          <div class="legend-item">
-            <div class="leg-dot leg-rest"></div>
-            Restaurantes
-          </div>
-        </div>
-
-        <!-- Google Maps placeholder note -->
-        <!-- 
-          Para integrar Google Maps:
-          1. Reemplazá este div.map-area con un div id="map"
-          2. Agregá el script de la API al final del body:
-             <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"></script>
-          3. Inicializá el mapa en initMap() apuntando a Buenos Aires
-        -->
-      </div><!-- /map-area -->
+      <div class="map-area">
+        <div id="map"></div>
+      </div>
 
     </div><!-- /explore-layout -->
   </main>
@@ -364,5 +307,7 @@
 
   document.getElementById('searchInput').addEventListener('input', e => filterList(e.target.value));
 </script>
+
+<script type="module" src="/src/js/explorar.js"></script>
 </body>
 </html>
